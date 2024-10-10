@@ -84,7 +84,7 @@ const loadAnimation = (data, container) => {
     });
 }
 
-let anim = loadAnimation('bateador.json', animContainer)
+let anim = loadAnimation('lanzador.json', animContainer)
 let externalLoop;
 
 //add font-face from data.json  
@@ -307,7 +307,7 @@ webcg.on('data', function (data) {
                                 }, 0);
 
                                 if (animElement.data.hasOwnProperty('lineup')){ // esto es solo necesario si la barra activa es diferente --> && animElement.data.lineup !== current_bat){
-                                    console.log(`Lineup Color: ${animElement.data.nm} lineup:${animElement.data.lineup} - ${data_equipos[current_team].color_texto}`);
+                                    console.log(`Lineup Color Negro: ${animElement.data.nm} lineup:${animElement.data.lineup}`);
                                      animElement.updateDocumentData({
                                   t: data[cl] ? data[cl].text || data[cl] : '', fc: data_equipos[current_team].color_texto}, 0); // Update the text y coloreamos Negro
                                      
@@ -370,7 +370,7 @@ function checkandupdate(item, value){
     } else {
         console.log(`checkandupdate: ${item} --- waiting`)
         setTimeout(function(){
-            checkandupdate(item,value);
+            checkandupdate(item, value);
         }, 100);
     }
 }
@@ -406,10 +406,12 @@ function update_equipo(nombre_equipo){
     clear_logos()
     checkandcolor("c1",data_equipos[nombre_equipo].color);
     checkandcolor("c2",data_equipos[nombre_equipo].color);
-   // checkandcolor("c3",data_equipos[nombre_equipo].color);
-  //  update_color("c4",data_equipos[nombre_equipo].color);
+    checkandcolor("c3",data_equipos[nombre_equipo].color);
+    checkandcolor("c4",data_equipos[nombre_equipo].color);
+    checkandcolor("c5",data_equipos[nombre_equipo].color);
+    checkandcolor("c6",data_equipos[nombre_equipo].color);
 
-  checkandupdate(data_equipos[nombre_equipo].logo, 1);
+    checkandupdate(data_equipos[nombre_equipo].logo, 1);
     
 }
 

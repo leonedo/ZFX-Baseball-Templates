@@ -1,324 +1,421 @@
-//set ins and out of animation
+// version 1.04 template index made by heine.froholdt@gmail.com
 
-var animSettings = {
-    "play": {
-        "in": 722,
-        "out": 734
-    },
-    "homerun": {
-        "in": 347,
-        "out": 600
-    },
-    "bb": {
-        "in": 1,
-        "out": 42
-    },
-    "hit": {
-        "in": 43,
-        "out": 85
-    },
-    "doble": {
-        "in": 86,
-        "out": 128
-    },
-    "triple": {
-        "in": 129,
-        "out": 171
-    },
-    "out": {
-        "in": 172,
-        "out": 214
-    },
-    "hbp": {
-        "in": 215,
-        "out": 258
-    },
-    "kderecho": {
-        "in": 303,
-        "out": 358
-    },
-    "kizquierdo": {
-        "in": 259,
-        "out": 364
-    },
-    "bate": [
-        {"in": 646,"out": 648},
-        {"in": 646,"out": 648}, // 1
-        {"in": 650,"out": 656}, // 2
-        {"in": 658,"out": 665}, // 3
-        {"in": 667,"out": 674}, // 4
-        {"in": 676,"out": 682}, // 5
-        {"in": 685,"out": 692}, // 6
-        {"in": 694,"out": 700}, // 7
-        {"in": 704,"out": 709}, // 8
-        {"in": 712,"out": 715}, // 9
-        {"in": 655,"out": 674}, // 9
-       
-    ],
+let isOn = false;
+let framesMilliseconds;
+let fontsLoaded = false;
+let animLoaded = false;
+let animElementsLength;
+let markers = {}
+let markersLoop = {}
 
-    "conteo": {
-        "in": 707.0000287967,
-        "out": 733.000029855702,
-    },
+//loop handling
+let loopExits = false;
+let loopAnimation = false;
+let loopDelay = 0;
+let loopExternal = false;
+let loopRepeat;
+let loopDuration;
+let loopTiming;
 
-    "update": {
-        "in": 420,
-        "out": 425
 
-    },
-    "loop": {
-        "in": 420,
-        "out": 440
-    }
-}
+//update
+let updateAnimation = false;
+let updateDelay = 0;
+let nextAnimation;
+let imagesReplace = {};
+
+
+//data de equipos
+let current_team
+
 
 var data_equipos = {
     // "aguilas": {
     //     "color": "#ffc900",
     //     "color_texto": [0,0,0],
-    //     "logo": "logo_aguilas_arriba",
-    //     "logo2": "logo_aguilas_abajo",
-    //     "logo3": "logo_aguilas_abajo2"
+    //     "logo2": "logo_aguilas_arriba",
+    //     "logo": "logo_aguila_abajo"
     // },
     // "leones": {
     //     "color": "#ce2029",
     //     "color_texto": [1,1,1],
-    //     "logo": "logo_escogido_arriba",
-    //     "logo2": "logo_escogido_abajo",
-    //     "logo3": "logo_escogido_abajo2"
+    //     "logo2": "logo_escogidos_arriba",
+    //     "logo": "logo_escogidos_abajo"
     // },
     "tigres": {
         "color": "#175db4",
         "color_texto": [1,1,1],
-        "logo": "logo_licey_arriba",
-        "logo2": "logo_licey_abajo",
-        "logo3": "logo_licey_abajo2"
+        "logo2": "logo_licey_arriba",
+        "logo": "logo_licey_abajo"
     },
     // "estrellas": {
     //     "color": "#006339",
     //     "color_texto": [1,1,1],
-    //     "logo": "logo_estrella_arriba",
-    //     "logo2": "logo_estrella_abajo",
-    //     "logo3": "logo_estrella_abajo2"
+    //     "logo2": "logo_estrella_arriba",
+    //     "logo": "logo_estrellas_abajo"
     // },
     "gigantes": {
         "color": "#8d1738",
         "color_texto": [1,1,1],
-        "logo": "logo_gigantes_arriba",
-        "logo2": "logo_gigantes_abajo",
-        "logo3": "logo_gigantes_abajo2"
-    }
-    // ,
+        "logo2": "logo_gigantes_arriba",
+        "logo": "logo_gigantes_abajo"
+    // },
     // "toros": {
     //     "color": "#FD3F00",
     //     "color_texto": [0,0,0],
-    //     "logo": "logo_toros_arriba",
-    //     "logo2": "logo_toros_abajo",
-    //     "logo3": "logo_gigantes_abajo2"
-    // }
-}
-
-
-var my_equipo
-var saved_data
-var current_loop
-var current_bat
-var inFrame
-
-//the first search path
-var defult_image = "images/img_1.png";
-
-
-const formatter = new Intl.DateTimeFormat('es', {
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-});
-
-
-var animData = 'data';
-var animContainer = document.getElementById('bm');
-var anim = lottie.loadAnimation({
-    container: animContainer, // The dom element that will contain the animation
-    renderer: 'svg',
-    loop: false,
-    autoplay: false,
-    path: 'data.json',
-    rendererSettings: {hideOnTransparent:false}
-});
-anim.addEventListener('DOMLoaded', function (e) {
-    console.log('DOMLoaded');
-    check();
-  //  current_bat = "1"; //Esto sobreescribe la data inicial, no lo quiero ya!!
-});
-
-var check = function(){
-    var condition = document.querySelector(".c1") !== false;
-    if(condition){
-        console.log("DONE waiting!! :)")
-        webcg.update(saved_data);
-        albate(current_bat)
-        play()
-    }
-    else {
-        console.log("waiting")
-        setTimeout(check, 200); // check again in a second
+    //     "logo2": "logo_toros_arriba",
+    //     "logo": "logo_toros_abajo"
     }
 }
 
-// Handle update/data using WebCG
+let animContainer = document.getElementById('bm');
+let loopContainer = document.getElementById('loop');
+
+
+const loadAnimation = (data, container) => {
+    console.log('loading ' + data)
+    return lottie.loadAnimation({
+        container: container,
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        path: data,
+        rendererSettings: {hideOnTransparent:false}
+    });
+}
+
+let anim = loadAnimation('data.json', animContainer)
+let externalLoop;
+
+//add font-face from data.json  
+const addFont = (fam, path) => {
+    let newFont = document.createElement('style')
+    newFont.appendChild(document.createTextNode(`\
+    @font-face {\
+        font-family: ${fam};\
+        src: url('${path}');\
+    }\
+    `));
+    document.head.appendChild(newFont);
+}
+
+
+//checking if the animation is ready
+const makeAnimPromise = () => {
+    return new Promise(function (resolve, reject) {
+        if (animLoaded) {
+            resolve('Animation ready to play')
+        } else {
+            anim.addEventListener('DOMLoaded', function (e) {
+                animLoaded = true;
+                resolve('Animation ready to play')
+                
+            });
+        }
+    })
+};
+
+
+const isMarker = (obj, keyItem, markerName) => {
+    return new Promise((resolve, reject) => {
+        let markers = obj.markers
+        markers.forEach((item, index) => {
+            for (let key in item) {
+                if (item[key][keyItem] === markerName) {
+                    resolve(true)
+                } else if (item.length === key) {
+                    reject(false)
+                }
+            }
+        })
+    })
+}
+
+const getMarkerValue = (obj, keyItem, defaultValue) => {
+    return new Promise((resolve, reject) => {
+        let markers = obj.markers
+        markers.forEach((item, index) => {
+            for (let key in item) {
+                if (item[key].hasOwnProperty(keyItem)) {
+                    resolve(item[key][keyItem])
+                } else if (item.length === key) {
+                    reject(defaultValue)
+                }
+            }
+        })
+    })
+}
+
+
+
+//anim ready
+anim.addEventListener('config_ready', function (e) {
+    //setting the animation framerate
+    let mainAnimation = anim.renderer.data
+    framesMilliseconds = 1000 / mainAnimation.fr
+
+    if (anim.hasOwnProperty('markers')) {
+        anim.markers.forEach((item, index) => {
+            markers[item.payload.name] = item;
+        })
+    }
+    //checking for a loop in the animation
+    isMarker(anim, 'name', 'loop').then((res) => {
+        loopAnimation = res
+
+        if (res) {
+            loopExits = true;
+            getMarkerValue(anim, 'loopDelay', 0).then((res) => {
+                loopDelay = Number(res)
+            })
+            getMarkerValue(anim, 'loopExternal', false).then((res) => {
+                loopExternal = (res === 'true')
+
+                //handling of external loop
+                if (loopExternal) {
+
+                    externalLoop = loadAnimation('loop.json', loopContainer)
+                    if (externalLoop.hasOwnProperty('markers')) {
+                        externalLoop.markers.forEach((item, index) => {
+                            markersLoop[item.payload.name] = item;
+                
+                        })
+                    }
+                    externalLoop.addEventListener('complete', () => {
+                        if (nextAnimation !== 'stop') {
+                            loopRepeat = setTimeout(() => {
+                                externalLoop.goToAndPlay('loop', true);
+                            }, framesMilliseconds * loopDelay)
+
+                        } else if (isOn && nextAnimation === 'stop') {
+                            externalLoop.goToAndPlay('stop', true);
+                            anim.goToAndPlay('stop', true)
+                            nextAnimation === 'no animation'
+                            isOn = false;
+                        }
+
+                    })
+                }
+
+
+            })
+            if(!loopExternal){
+                loopDuration = markers['loop']['duration']
+            } else {
+                loopDuration = markersLoop['loop']['duration']
+            }
+          
+        }
+    })
+    //checking for a update animation in the animation 
+    isMarker(anim, 'name', 'update').then((res) => {
+        updateAnimation = res
+        if (res) {
+            getMarkerValue(anim, 'updateDelay', 0).then((res) => {
+                updateDelay = Number(res)
+            })
+        }
+    })
+
+    //Add fonts to style
+    if (!fontsLoaded) {
+        let fonts = anim.renderer.data.fonts.list;
+        for (const font in fonts) {
+            let family = fonts[font].fFamily
+            let fontPath = fonts[font].fPath
+            if (fontPath !== '') {
+                addFont(family, fontPath)
+            }
+        }
+    }
+
+});
+
+const animPromise = makeAnimPromise()
 
 webcg.on('data', function (data) {
-   
-    saved_data = data;
-    if(data && data.hasOwnProperty('image')){
-        
-                console.log('Image exists.');
-                var newPath = data.image ? data.image.text || data.image : '';
-                var imageElements = animContainer.getElementsByTagName("image");
-                const element = imageElements[8];
-                element.setAttribute("href", newPath);
-                update_opacidad("foto",1)
-            }
-            
-       
-      
-    if(data && data.hasOwnProperty('visitante')){
-        console.log(`vistiante: ${data['visitante']}`)
-        update_visitante(data['visitante'])
-    }
-    if(data && data.hasOwnProperty('local')){
-        console.log(`local: ${data['local']}`)
-        update_local(data['local'])
-    }
-    if(data && data.hasOwnProperty('equipo')){
-        current_team = (data['equipo'])
-    }
-    if (data && data.hasOwnProperty('bateador')){
-        current_bat = data['bateador']; 
-        albate(current_bat);
-    } 
-
-
+    let updateTiming = 0
+    console.log('data from casparcg received')
+    
     var key; 
     for (key in data) {
         console.log(key + " = " + data[key]); 
+       // if (key.includes("equipo")){equipo = data[key]}
         if (key.includes("equipo")){
-            equipo = data[key]
-            update_equipo(equipo)}
-        
-         // opa_base_# opa_out_# opa_baja opa_alta
-        // vamos a usar opa para actualizar bases y outs! 
+            current_team = data[key]
+            update_equipo(data[key])}
+        //if ( key.includes("out") || key.includes("basellena") || key.includes("parte")){update_opacidad(key,data[key])}
+        //if (key === "visitante" || key === "homeclub"){update_equipos(data[key],key)}
     } 
-    if (anim.currentFrame !== 0 && anim.isPaused ) {
-        // el update solo funciona durante una animacion, por eso hace el update, eso regresa la animacion a la posicion donde estaba
-        // antes de iniciar el update (excepto si era al inicio)
-        saveCurrentFrame();
-        console.log("saving current")
-       // anim.playSegments([animSettings.update.in, animSettings.update.out], true);
-        anim.playSegments([animSettings.bate[current_bat].in, animSettings.bate[current_bat].out], true);
-    }
-   
-    
-    setTimeout(function () {
-        // Update animation text
-        var animElementsLength = anim.renderer.elements.length;
-        for (let i = 0; i < animElementsLength; i++) {
-            var animElement = anim.renderer.elements[i];
-            // Check the animation element has a class name and that the WebCG data has a key with the same class name
-            if (
-                animElement.hasOwnProperty('data') && animElement.data.hasOwnProperty('cl') &&
-                data && data.hasOwnProperty(animElement.data.cl) && animElement.data.hasOwnProperty('t')
-            ) {
-                var cl = animElement.data.cl;
-                try {
-                    animElement.canResizeFont(true); // Let lottie resize text to fit the text box
-                    animElement.updateDocumentData({
-                        t: data[cl] ? data[cl].text || data[cl] : ''
-                    }, 0); // Update the text
+    console.log('End of my test segment')
+    animPromise.then(resolve => {
+            if (anim.currentFrame !== 0 && updateAnimation) {
+                updateTiming = framesMilliseconds * (updateDelay + loopTiming)
+                if (anim.isPaused && isOn) {
+                    anim.goToAndPlay('update', true)
+                    if (!loopExternal) {
+                        clearTimeout(loopRepeat);
+                    }
 
-                    if (animElement.data.hasOwnProperty('lineup')){ // esto es solo necesario si la barra activa es diferente --> && animElement.data.lineup !== current_bat){
-                       console.log(`Lineup Color Negro: ${animElement.data.nm} lineup:${animElement.data.lineup}`);
-                        animElement.updateDocumentData({
-                     t: data[cl] ? data[cl].text || data[cl] : '', fc: data_equipos[current_team].color_texto}, 0); // Update the text y coloreamos Negro
-                        
-                    }// Esta seccion es solo necesaria si queremos que la barra del bateador tenga un color diferente
-                    //else if(animElement.data.hasOwnProperty('lineup') && animElement.data.lineup == current_bat){
-                    //    console.log(`Lineup Color Blanco: ${animElement.data.nm} lineup:${animElement.data.lineup}, current_bat: ${current_bat}`)
-                    //    animElement.updateDocumentData({
-                    //            t: data[cl] ? data[cl].text || data[cl] : '', fc: [1,1,1]}, 0); // Update the text y coloreamos blaco     
-                    //    }
-                    
-                } catch (err) {console.log(err)}
+                } else {
+                    loopAnimation = false;
+                    nextAnimation = 'update'
+                }
+            } else if(!loopExternal && loopExits && anim.isPaused) {
+                anim.goToAndPlay('loop', true)
             }
-        }    
-    }, 0); // esto es para esperar antes de hacer los cambios, por ejemplo en el momento exacto de la animacion
+
+            let imageElements = animContainer.getElementsByTagName("image");
+            animElementsLength = anim.renderer.elements.length;
+            console.log(resolve)
+
+            setTimeout(() => {
+                for (let i = 0; i < animElementsLength; i++) {
+                    var animElement = anim.renderer.elements[i];
+                    if (
+                        animElement.hasOwnProperty('data') && animElement.data.hasOwnProperty('cl') &&
+                        data && data.hasOwnProperty(animElement.data.cl)
+                    ) {
+                        let cl = animElement.data.cl;
+                        let searchPath;
+                        let newPath;
+
+                        if (animElement.data.hasOwnProperty('refId') && animElement.data.refId.includes('image')) {
+                            newPath = data[cl] ? data[cl].text || data[cl] : '';
+                            anim.assets.forEach((item, index) => {
+                                if (item.id === animElement.data.refId) {
+                                    if (imagesReplace.hasOwnProperty(animElement.data.refId)) {
+                                        searchPath = imagesReplace[animElement.data.refId];
+                                    } else {
+                                        searchPath = `${anim.assets[index].u}${anim.assets[index].p}`;
+                                    }
+                                }
+                            })
+
+                            for (let i = 0; i < imageElements.length; i++) {
+                                const element = imageElements[i];
+                                if (~element.getAttribute("href").search(searchPath)) {
+                                    element.setAttribute("href", newPath);
+                                    imagesReplace[animElement.data.refId] = newPath
+                                }
+                            };
+
+
+                        } else {
+                            try {
+                                animElement.canResizeFont(true);
+                                animElement.updateDocumentData({
+                                    t: data[cl] ? data[cl].text || data[cl] : ''
+                                }, 0);
+
+                                if (animElement.data.hasOwnProperty('lineup')){ // esto es solo necesario si la barra activa es diferente --> && animElement.data.lineup !== current_bat){
+                                    console.log(`Lineup Color: ${animElement.data.nm} lineup:${animElement.data.lineup} - ${data_equipos[current_team].color_texto}`);
+                                     animElement.updateDocumentData({
+                                  t: data[cl] ? data[cl].text || data[cl] : '', fc: data_equipos[current_team].color_texto}, 0); // Update the text y coloreamos Negro
+                                     
+                                 }
+
+                            } catch (err) {
+                                console.log(err)
+                            }
+                        };
+                    }
+                }
+
+            }, updateTiming);
+
+        })
+        .catch(error => console.log(error))
 });
 
 
-  
-   /* calling currentTime() function to initiate the process */
+//what to do everytime main animation is done playing
+anim.addEventListener('complete', () => {
+
+    if (loopAnimation && isOn && !loopExternal) {
+        loopRepeat = setTimeout(() => {
+            anim.goToAndPlay('loop', true);
+        }, framesMilliseconds * loopDelay)
+
+    } else if (nextAnimation === 'stop' && isOn && !loopExternal) {
+        anim.goToAndPlay(nextAnimation, true)
+        isOn = false
+
+    } else if (isOn && nextAnimation !== 'no animation' && !loopExternal) {
+        anim.goToAndPlay(nextAnimation, true)
+        if (loopExits && !loopExternal) {
+            loopAnimation = true;
+
+        }
+
+        nextAnimation = 'no animation'
+    }
+})
+
+//Custom methods
 
 function update_color(campo,color){
-   try {
     var fill_color = `.${campo}`
     document.querySelector(fill_color).style.setProperty("fill", color);
-   } catch (error) {
-     {console.log(error)}
-   }
-   
 }
 
 function update_opacidad(campo,value){
-   try {
     var fill = `.${campo}`
     document.querySelector(fill).style.setProperty("opacity", value);
-   } catch (error) {
-     {console.log(error)}
-   }
-   
 }
 
-function clear_logos(){
-    const logo2Names = Object.values(data_equipos).map(equipo => equipo.logo2);
-    logo2Names.forEach((item, index) => {
-      console.log(`${index} : ${item}`);
-      if (item){
-        update_opacidad(item,0);
-      }
-      
-    });
-    console.log(`clear logos done`);
+
+function checkandupdate(item, value){
+    if (itemExists(item)){
+        console.log(`checkandupdate: ${item} -- exist`)
+        update_opacidad(item,value)
+    } else {
+        console.log(`checkandupdate: ${item} --- waiting`)
+        setTimeout(function(){
+            checkandupdate(item,value);
+        }, 100);
+    }
+}
+
+function checkandcolor(item, color){
+    if (itemExists(item)){
+        console.log(`checkandcolor: ${item} -- exist`)
+        update_color(item,color);
+    } else {
+        console.log(`checkandcolor: ${item} --- waiting`)
+        setTimeout(function(){
+            checkandcolor(item, color);
+        }, 100);
+    }
+}
+
+function itemExists(item) {
+    var fill = `.${item}`
+   //return document.querySelector(item).style !== false;
+   return document.querySelector(fill) !== null;
+}
+
+
+function clear_logos(){ 
+    for( equipo in data_equipos) {
+        logo = data_equipos[equipo].logo;
+        checkandupdate(logo,0);
+    }
 }
 
 function update_equipo(nombre_equipo){
+    current_team = nombre_equipo
     clear_logos()
-    update_opacidad(data_equipos[nombre_equipo].logo2, 1);
-    update_color("c1",data_equipos[nombre_equipo].color);
-    update_color("c2",data_equipos[nombre_equipo].color);
-    update_color("c3",data_equipos[nombre_equipo].color);
+    checkandcolor("c1",data_equipos[nombre_equipo].color);
+    checkandcolor("c2",data_equipos[nombre_equipo].color);
+    checkandcolor("c3",data_equipos[nombre_equipo].color);
   //  update_color("c4",data_equipos[nombre_equipo].color);
-  //  update_color("c5",data_equipos[nombre_equipo].color);
-    
+
+  checkandupdate(data_equipos[nombre_equipo].logo, 1);
     
 }
 
-function update_visitante(equipo){
-    update_color("c0",data_equipos[equipo].color);
-    console.log("visitante color listo updated")
-    update_opacidad(data_equipos[equipo].logo2, 1);
-    console.log("visitante logo2 opacidad listo updated")
-    equipo_visitante = equipo;
-    console.log("visitante updated: ",equipo_visitante)
-}
 
-function update_local(equipo){
-    update_color("c1",data_equipos[equipo].color);
-    console.log("local color listo updated")
-    update_opacidad(data_equipos[equipo].logo3, 1);
-    console.log("local opacidad listo updated")
-    equipo_local = equipo;
-}
 
 webcg.on('equipo', function(data){  
     update_equipo(data)
@@ -328,135 +425,78 @@ webcg.on('equipo', function(data){
 
 
 //casparcg control
- webcg.on('play', function () {
-    //currentTime() 
-    anim.playSegments([animSettings.play.in, animSettings.play.out], true);
- });
+webcg.on('play', function () {
+    animPromise.then((resolve) => {
+        console.log('play')
+       // anim.playSegments([markers.start.time, markers.start.time + markers.start.duration], true);
+        anim.playSegments([0, 60], true);
 
+        //anim.goToAndPlay('play', true);
+        if (loopExits && loopExternal) {
+            externalLoop.goToAndPlay('play', true);
+        }
+        isOn = true;
+    });
 
- webcg.on('playfull', function () {
-    //currentTime() 
-    anim.playSegments([722, 734], true);
- });
-
-
- webcg.on('entrada', function () {
-    //currentTime() 
-    anim.playSegments([10, 23], true);
- });
-
- webcg.on('homerun', function () {
-    //currentTime() 
-    saveCurrentFrame()
-    anim.playSegments([animSettings.homerun.in, animSettings.homerun.out], true);
- });
-
- webcg.on('bb', function () {
-    //currentTime() 
-    saveCurrentFrame()
-    anim.playSegments([animSettings.bb.in, animSettings.bb.out], true);
- });
-
- webcg.on('hit', function () {
-    //currentTime() 
-    saveCurrentFrame()
-    anim.playSegments([animSettings.hit.in, animSettings.hit.out], true);
- });
-
- webcg.on('doble', function () {
-    //currentTime() 
-    saveCurrentFrame()
-    anim.playSegments([animSettings.doble.in, animSettings.doble.out], true);
- });
-
- webcg.on('triple', function () {
-    //currentTime() 
-    saveCurrentFrame()
-    anim.playSegments([animSettings.triple.in, animSettings.triple.out], true);
- });
-
- webcg.on('out', function () {
-    //currentTime() 
-    saveCurrentFrame()
-    anim.playSegments([animSettings.out.in, animSettings.out.out], true);
- });
-
- webcg.on('hbp', function () {
-    //currentTime() 
-    saveCurrentFrame()
-    anim.playSegments([animSettings.hbp.in, animSettings.hbp.out], true);
- });
-
- webcg.on('kderecho', function () {
-    //currentTime() 
-    saveCurrentFrame()
-    anim.playSegments([animSettings.kderecho.in, animSettings.kderecho.out], true);
- });
-
- webcg.on('kizquierdo', function () {
-    //currentTime() 
-    saveCurrentFrame()
-    anim.playSegments([animSettings.kizquierdo.in, animSettings.kizquierdo.out], true);
- });
-
- //No en uso, usamos un grafico
- webcg.on('conteo', function () {
-    //currentTime() 
-    saveCurrentFrame()
-    anim.playSegments([animSettings.conteo.in, animSettings.conteo.out], true);
- });
-
-
- webcg.on('bate', function(data){ 
-            console.log(data);
-            albate(data) 
 });
 
-console.log("about to read al bate")
-function albate(value){
-    if (value) {
-        anim.firstFrame = 0;
-        anim.goToAndStop(animSettings.bate[value].out,true);
-      //  anim.playSegments([animSettings.bate[value].in, animSettings.bate[value].out], true);
-    }else{
-       console.log("No hay bateador")
-    }
+webcg.on('show', function () {
+    anim.setDirection(1);
+    animPromise.then((resolve) => {
+        console.log('show')
+        anim.goToAndPlay('show', true);
+        isOn = true;
+    });
+
+});
+
+webcg.on('hide', function () {
+   console.log("this is hide!")
+    anim.setDirection(-1);
+    anim.playSegments([60, 0.1], true);
+    isOn = false;
    
-}
 
- function lastFrame(){ 
-    anim.removeEventListener('complete', lastFrame);
-    anim.firstFrame = 0;
-   anim.goToAndStop(inFrame,true);
-   console.log(`Current --> ${anim.currentFrame} `)
-   console.log(`hi goto --> ${inFrame} `)
-};
-
-function saveCurrentFrame(){
-    inFrame = anim.currentFrame + anim.firstFrame;
-    console.log(`Current FRame from start --> ${inFrame} `)
-    anim.addEventListener('complete', lastFrame);
-}
+});
 
 
 webcg.on('stop', function () {
-  
-});
+    console.log('stop')
+    clearTimeout(loopRepeat);
+    loopAnimation = false;
+    nextAnimation = 'stop'
 
-webcg.on('loop_play', function () {
-    anim.addEventListener('complete', loop);
-    anim.playSegments([animSettings.loop.in, animSettings.loop.out], true);
-});
+    if (anim.isPaused) {
+        if (!loopExternal) {
+            anim.goToAndPlay('stop', true)
+            isOn = false
+        }
 
-webcg.on('stoploop', function () {
-    anim.removeEventListener('complete', loop);
-});
-
-function loop() {
-    console.log('Loop start');
-    anim.playSegments([animSettings.loop.in, animSettings.loop.out], true);
+        if (loopExits && loopExternal && externalLoop.isPaused) {
+            externalLoop.goToAndPlay('stop', true);
+            anim.playSegments([markers.stop.time, markers.stop.time + markers.stop.duration], true);
+            //anim.goToAndPlay('stop', true)
+            isOn = false
+        }
     }
 
-function remove_anim(){
-    window.close()
-}
+});
+
+webcg.on('playAnimation', function (animationName) {
+    console.log('playAnimation ' + animationName)
+    anim.goToAndPlay(animationName, true);
+});
+
+webcg.on('update', function () {
+    if (!loopExternal) {
+        clearTimeout(loopRepeat);
+    }
+
+    if (anim.isPaused || loopExternal) {
+        loopTiming = 0
+
+    } else if (isOn) {
+        loopTiming = loopDuration - Math.round(anim.currentFrame)
+
+    }
+});

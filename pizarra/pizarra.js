@@ -63,7 +63,7 @@ var animSettings = {
 
     "update": {
         "in": 420,
-        "out": 425
+        "out": 430
 
     },
     "loop": {
@@ -123,6 +123,7 @@ var saved_data
 var current_loop
 var current_bat
 var inFrame
+var current_team
 
 //the first search path
 var defult_image = "images/img_1.png";
@@ -239,10 +240,10 @@ webcg.on('data', function (data) {
                      t: data[cl] ? data[cl].text || data[cl] : '', fc: data_equipos[current_team].color_texto}, 0); // Update the text y coloreamos Negro
                         
                     }// Esta seccion es solo necesaria si queremos que la barra del bateador tenga un color diferente
-                    //else if(animElement.data.hasOwnProperty('lineup') && animElement.data.lineup == current_bat){
+                    // else if(animElement.data.hasOwnProperty('lineup') && animElement.data.lineup == current_bat){
                     //    console.log(`Lineup Color Blanco: ${animElement.data.nm} lineup:${animElement.data.lineup}, current_bat: ${current_bat}`)
                     //    animElement.updateDocumentData({
-                    //            t: data[cl] ? data[cl].text || data[cl] : '', fc: [1,1,1]}, 0); // Update the text y coloreamos blaco     
+                    //            t: data[cl] ? data[cl].text || data[cl] : '', fc: [0,0,0]}, 0); // Update the text y coloreamos blaco     
                     //    }
                     
                 } catch (err) {console.log(err)}
@@ -256,15 +257,20 @@ webcg.on('data', function (data) {
    /* calling currentTime() function to initiate the process */
 
 function update_color(campo,color){
+    try {
     console.log(`color: ${campo}`)
     var fill_color = `.${campo}`
     document.querySelector(fill_color).style.setProperty("fill", color);
+    } catch (err) {console.log(err)}
 }
 
 function update_opacidad(campo,value){
+    try {
     console.log(`opacidad: ${campo}`)
     var fill = `.${campo}`
     document.querySelector(fill).style.setProperty("opacity", value);
+    console.log(`opacidad LISTO!: ${campo}`)
+} catch (err) {console.log(err)}
 }
 
 function clear_logos(){

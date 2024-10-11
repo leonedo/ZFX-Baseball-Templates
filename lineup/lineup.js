@@ -158,6 +158,7 @@ var check = function(){
         console.log("DONE waiting!! :)")
         webcg.update(saved_data);
         albate(current_bat)
+        play()
     }
     else {
         console.log("waiting")
@@ -259,19 +260,29 @@ webcg.on('data', function (data) {
    /* calling currentTime() function to initiate the process */
 
 function update_color(campo,color){
+   try {
     var fill_color = `.${campo}`
     document.querySelector(fill_color).style.setProperty("fill", color);
+   } catch (error) {
+     {console.log(error)}
+   }
+   
 }
 
 function update_opacidad(campo,value){
+   try {
     var fill = `.${campo}`
     document.querySelector(fill).style.setProperty("opacity", value);
+   } catch (error) {
+     {console.log(error)}
+   }
+   
 }
 
 function clear_logos(){
     const logo2Names = Object.values(data_equipos).map(equipo => equipo.logo2);
     logo2Names.forEach((item, index) => {
-      console.log(`${index} : ${item.logo2}`);
+      console.log(`${index} : ${item}`);
       if (item){
         update_opacidad(item,0);
       }

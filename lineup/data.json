@@ -1,7 +1,7 @@
 {
   "v": "5.7.8",
   "fr": 29.9700012207031,
-  "ip": 0,
+  "ip": -1,
   "op": 778.00003168859,
   "w": 1920,
   "h": 1080,
@@ -8235,7 +8235,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "01",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -8327,7 +8327,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "33",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -8419,7 +8419,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "55",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -8511,7 +8511,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "65",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -8603,7 +8603,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "09",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -8695,7 +8695,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "11",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -8787,7 +8787,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "88",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -8879,7 +8879,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "36",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -8971,7 +8971,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "80",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -9063,7 +9063,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "JUAN ENCARNACIÓN",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -9155,7 +9155,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "JUNIOR LAKE",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -9247,7 +9247,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "LUIS POLONIA ORTIZ",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -9339,7 +9339,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "ALBERT PUJOLS",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -9431,7 +9431,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "PEDRO MARTINEZ",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -9523,7 +9523,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "RAFAEL DEBERS",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -9615,7 +9615,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "MIGUES TEJADA",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -9707,7 +9707,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "RAON ORTIZ",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -9799,7 +9799,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "VLADIMIR GUERRERO",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -9891,7 +9891,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "3B",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 0,
@@ -9983,7 +9983,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "2B",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 0,
@@ -10075,7 +10075,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "1B",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 0,
@@ -10167,7 +10167,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "CC",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 0,
@@ -10259,7 +10259,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "P",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 0,
@@ -10351,7 +10351,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "C",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 0,
@@ -10443,7 +10443,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "RF",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 0,
@@ -10535,7 +10535,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "LF",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 0,
@@ -10627,7 +10627,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "CF",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 0,

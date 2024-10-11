@@ -256,11 +256,13 @@ webcg.on('data', function (data) {
    /* calling currentTime() function to initiate the process */
 
 function update_color(campo,color){
+    console.log(`color: ${campo}`)
     var fill_color = `.${campo}`
     document.querySelector(fill_color).style.setProperty("fill", color);
 }
 
 function update_opacidad(campo,value){
+    console.log(`opacidad: ${campo}`)
     var fill = `.${campo}`
     document.querySelector(fill).style.setProperty("opacity", value);
 }
@@ -281,7 +283,7 @@ function update_equipo(nombre_equipo){
     update_color("c1",data_equipos[nombre_equipo].color);
     update_color("c2",data_equipos[nombre_equipo].color);
     update_color("c3",data_equipos[nombre_equipo].color);
-    update_color("c4",data_equipos[nombre_equipo].color);
+    //update_color("c4",data_equipos[nombre_equipo].color);
     update_color("c5",data_equipos[nombre_equipo].color);
     
     
@@ -297,7 +299,7 @@ function update_visitante(equipo){
 }
 
 function update_local(equipo){
-    update_color("c1",data_equipos[equipo].color);
+    update_color("c4",data_equipos[equipo].color);
     console.log("local color listo updated")
     update_opacidad(data_equipos[equipo].logo3, 1);
     console.log("local opacidad listo updated")

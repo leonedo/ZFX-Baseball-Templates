@@ -1,7 +1,7 @@
 {
   "v": "5.7.8",
   "fr": 29.9700012207031,
-  "ip": 0,
+  "ip": -1,
   "op": 778.00003168859,
   "w": 1920,
   "h": 1080,
@@ -14948,7 +14948,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "01",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -15041,7 +15041,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "33",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -15134,7 +15134,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "55",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -15227,7 +15227,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "65",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -15320,7 +15320,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "09",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -15413,7 +15413,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "11",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -15506,7 +15506,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "88",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -15599,7 +15599,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "36",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -15692,7 +15692,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "80",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -15784,7 +15784,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "JUAN ENCARNACIÓN",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -15876,7 +15876,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "JUNIOR LAKE",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -15968,7 +15968,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "LUIS POLONIA ORTIZ",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -16060,7 +16060,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "ALBERT PUJOLS",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -16152,7 +16152,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "PEDRO MARTINEZ",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -16244,7 +16244,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "RAFAEL DEBERS",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -16336,7 +16336,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "MIGUES TEJADA",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -16428,7 +16428,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "RAON ORTIZ",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -16520,7 +16520,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "VLADIMIR GUERRERO",
+                "t": "",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -16612,7 +16612,7 @@
               "s": {
                 "s": 17,
                 "f": "ConduitITCStd-ExtraBold",
-                "t": "CF",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 50,
@@ -16704,7 +16704,7 @@
               "s": {
                 "s": 17,
                 "f": "ConduitITCStd-ExtraBold",
-                "t": "LF",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 50,
@@ -16796,7 +16796,7 @@
               "s": {
                 "s": 17,
                 "f": "ConduitITCStd-ExtraBold",
-                "t": "RF",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 50,
@@ -16888,7 +16888,7 @@
               "s": {
                 "s": 17,
                 "f": "ConduitITCStd-ExtraBold",
-                "t": "C",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 50,
@@ -16980,7 +16980,7 @@
               "s": {
                 "s": 17,
                 "f": "ConduitITCStd-ExtraBold",
-                "t": "P",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 50,
@@ -17072,7 +17072,7 @@
               "s": {
                 "s": 17,
                 "f": "ConduitITCStd-ExtraBold",
-                "t": "CC",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 50,
@@ -17164,7 +17164,7 @@
               "s": {
                 "s": 17,
                 "f": "ConduitITCStd-ExtraBold",
-                "t": "1B",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 50,
@@ -17256,7 +17256,7 @@
               "s": {
                 "s": 17,
                 "f": "ConduitITCStd-ExtraBold",
-                "t": "2B",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 50,
@@ -17348,7 +17348,7 @@
               "s": {
                 "s": 17,
                 "f": "ConduitITCStd-ExtraBold",
-                "t": "3B",
+                "t": "",
                 "ca": 1,
                 "j": 1,
                 "tr": 50,
@@ -17440,7 +17440,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "21",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -17481,7 +17481,6 @@
       "ty": 5,
       "nm": ".t28",
       "cl": "t28",
-      "lineup":"0",
       "sr": 1,
       "ks": {
         "o": {
@@ -17533,7 +17532,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-ExtraBold",
-                "t": "JUNIOR LAKE PEREZ",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -17625,7 +17624,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "RF",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -17717,7 +17716,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "BD",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -17809,7 +17808,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": ".350",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -17901,7 +17900,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "18",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -17993,7 +17992,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "60",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -18085,7 +18084,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": ".390",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -18361,7 +18360,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "3",
+                "t": "1",
                 "ca": 1,
                 "j": 0,
                 "tr": 0,
@@ -19281,7 +19280,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -19373,7 +19372,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -19465,7 +19464,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -19557,7 +19556,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -19649,7 +19648,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -19741,7 +19740,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -19833,7 +19832,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -19925,7 +19924,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -20017,7 +20016,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -20109,7 +20108,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -20201,7 +20200,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -20293,7 +20292,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -20385,7 +20384,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -20477,7 +20476,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -20569,7 +20568,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -20661,7 +20660,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -20753,7 +20752,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -20845,7 +20844,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Medium",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -20937,7 +20936,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "0",
+                "t": "",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -21029,7 +21028,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "3",
+                "t": "0",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -21121,7 +21120,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "1",
+                "t": "0",
                 "ca": 1,
                 "j": 2,
                 "tr": 0,
@@ -21177,7 +21176,7 @@
         "p": {
           "a": 0,
           "k": [
-            1649.25,
+            1655.25,
             1031.5,
             0
           ],
@@ -21213,7 +21212,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "14",
+                "t": "0",
                 "ca": 1,
                 "j": 2,
                 "tr": -10,
@@ -21269,7 +21268,7 @@
         "p": {
           "a": 0,
           "k": [
-            1753.25,
+            1760.25,
             1031.5,
             0
           ],
@@ -21305,7 +21304,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "11",
+                "t": "0",
                 "ca": 1,
                 "j": 2,
                 "tr": -10,
@@ -21397,7 +21396,7 @@
               "s": {
                 "s": 15,
                 "f": "ConduitITCStd-Bold",
-                "t": "12",
+                "t": "0",
                 "ca": 1,
                 "j": 2,
                 "tr": -10,
